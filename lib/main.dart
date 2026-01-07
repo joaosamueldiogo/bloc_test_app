@@ -5,11 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 void main() {
   runApp(
-    BlocProvider<AppCubit>(
-      lazy: false,
-      create: (context) => AppCubit(),
-      child: MyApp(),
-    ),
+    BlocProvider<AppCubit>(create: (context) => AppCubit(), child: MyApp()),
   );
 }
 

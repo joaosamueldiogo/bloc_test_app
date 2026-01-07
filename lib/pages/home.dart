@@ -15,19 +15,26 @@ class HomePage extends StatelessWidget {
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.only(top: 32, left: 16, right: 16),
-          child: SingleChildScrollView(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              mainAxisAlignment: MainAxisAlignment.start,
-              spacing: MediaQuery.of(context).size.height * 0.03,
-              children: [
-                SearchField(),
-                WelcomeCover(),
-                TryNewThingsWidget(
-                  height: MediaQuery.of(context).size.height * 0.16,
-                ),
-                GetNowWidget(height: MediaQuery.of(context).size.height * 0.3),
-              ],
+          child: RefreshIndicator(
+            onRefresh: () async {
+              Future.delayed(const Duration(seconds: 1));
+            },
+            child: SingleChildScrollView(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.start,
+                spacing: MediaQuery.of(context).size.height * 0.03,
+                children: [
+                  SearchField(),
+                  WelcomeCover(),
+                  TryNewThingsWidget(
+                    height: MediaQuery.of(context).size.height * 0.16,
+                  ),
+                  GetNowWidget(
+                    height: MediaQuery.of(context).size.height * 0.3,
+                  ),
+                ],
+              ),
             ),
           ),
         ),
